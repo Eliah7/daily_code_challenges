@@ -1,12 +1,14 @@
 package routes
 
-import "net/http" 
+import (
+	"net/http" 
+) 
 
-type Status struct {
-	httpStatusCode int
-	message string
-}
+func GetHttpStatus(statusCode int) interface{}{
+	status := map[string]interface{}{
+        "httpStatusCode": statusCode,
+        "message": http.StatusText(statusCode),
+    }
 
-func GetHttpStatus(statusCode int) Status{
-	return Status{httpStatusCode: statusCode, message: http.StatusText(statusCode)}
+	return status
 }

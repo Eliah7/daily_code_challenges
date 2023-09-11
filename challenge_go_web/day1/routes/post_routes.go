@@ -12,7 +12,5 @@ func PingPost(c *gin.Context){
 
 func Login(c *gin.Context){
 	fmt.Println(GetHttpStatus(http.StatusOK))
-	c.JSON(http.StatusOK, gin.H{
-		"status": GetHttpStatus(http.StatusOK),
-	})
+	c.JSON(http.StatusOK, GetHttpStatus(http.StatusOK))
 }
